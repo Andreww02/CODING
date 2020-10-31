@@ -3,12 +3,14 @@
  import cors from 'cors';
  import http from 'http';
  import config from './environment';
+ import routes from './routes';
 
  const app = express();
 
  app.use(cors({ origin: true}));
  app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended:false }));
+ routes(app);
 
  app.get('/index', (req, res) => {
     console.log("req: ", req)
